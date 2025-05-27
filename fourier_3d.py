@@ -21,6 +21,8 @@ from timeit import default_timer
 
 from Adam import Adam
 
+from torch.utils.data import Dataset, DataLoader
+
 torch.manual_seed(0)
 np.random.seed(0)
 
@@ -162,8 +164,11 @@ class FNO3d(nn.Module):
 # configs
 ################################################################
 
-TRAIN_PATH = 'data/ns_data_V100_N1000_T50_1.mat'
-TEST_PATH = 'data/ns_data_V100_N1000_T50_2.mat'
+# TRAIN_PATH = 'data/ns_data_V100_N1000_T50_1.mat'
+# TEST_PATH = 'data/ns_data_V100_N1000_T50_2.mat'
+
+TRAIN_PATH = '/home/ioeddk/repo/adaptive-fno/fourier_neural_operator/data/ns_V1e-3_N5000_T50.mat'
+TEST_PATH = '/home/ioeddk/repo/adaptive-fno/fourier_neural_operator/data/ns_data_V1e-4_N20_T50_R256test.mat'
 
 ntrain = 1000
 ntest = 200
