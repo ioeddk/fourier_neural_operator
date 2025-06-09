@@ -167,11 +167,11 @@ class FNO3d(nn.Module):
 # TRAIN_PATH = 'data/ns_data_V100_N1000_T50_1.mat'
 # TEST_PATH = 'data/ns_data_V100_N1000_T50_2.mat'
 
-TRAIN_PATH = '/home/ioeddk/repo/adaptive-fno/fourier_neural_operator/data/ns_V1e-3_N5000_T50.mat'
-TEST_PATH = '/home/ioeddk/repo/adaptive-fno/fourier_neural_operator/data/ns_data_V1e-4_N20_T50_R256test.mat'
+TRAIN_PATH = '/home/ioeddk/repo/adaptive-fno/fourier_neural_operator/data/ns_V1e-3_N5000_T50_tiny.mat'
+TEST_PATH = '/home/ioeddk/repo/adaptive-fno/fourier_neural_operator/data/ns_V1e-3_N5000_T50_tiny.mat'
 
-ntrain = 1000
-ntest = 200
+ntrain = 500
+ntest = 100
 
 modes = 8
 width = 20
