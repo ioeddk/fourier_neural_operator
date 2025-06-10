@@ -1,0 +1,95 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run: fourier_3d_pro_no_earlystop.py",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/fourier_3d_pro_no_earlystop.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "purpose": ["debug-in-terminal"],
+            "args": [
+                "--train_path", "/home/ubuntu/ece228/fourier_neural_operator/data/ns_V1e-3_N5000_T50_tiny.mat",
+                "--test_path", "/home/ubuntu/ece228/fourier_neural_operator/data/ns_V1e-3_N5000_T50_tiny.mat",
+                "--ntrain", "500",
+                "--ntest", "100",
+                "--output_dir", "output_3d_no_earlystop",
+                "--batch_size", "10"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "Debug: fourier_3d_pro_no_earlystop.py",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/fourier_3d_pro_no_earlystop.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--train_path", "/home/ubuntu/ece228/fourier_neural_operator/data/ns_V1e-3_N5000_T50_tiny.mat",
+                "--test_path", "/home/ubuntu/ece228/fourier_neural_operator/data/ns_V1e-3_N5000_T50_tiny.mat",
+                "--ntrain", "500",
+                "--ntest", "100",
+                "--output_dir", "output_3d_no_earlystop",
+                "--batch_size", "10"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "Debug: fourier1dpro_no_earlystop.py",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/fourier1dpro_no_earlystop.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "Run: fourier_1d_attn.py",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/fourier_1d_attn.py",
+            "console": "integratedTerminal",
+            "justMyCode": false,
+            "purpose": ["debug-in-terminal"],
+            "args": [
+                "--train_path", "data/burgers_data_R10.mat",
+                "--test_path", "data/burgers_data_R10.mat",
+                "--ntrain", "1000",
+                "--ntest", "100",
+                "--output_dir", "output",
+                "--batch_size", "20"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        },
+        {
+            "name": "Debug: fourier_1d_attn.py",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/fourier_1d_attn.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--train_path", "data/burgers_data_R10.mat",
+                "--test_path", "data/burgers_data_R10.mat",
+                "--ntrain", "1000",
+                "--ntest", "100",
+                "--output_dir", "output",
+                "--batch_size", "20"
+            ],
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
+        }
+
+    ]
+}
