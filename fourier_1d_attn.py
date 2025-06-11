@@ -92,19 +92,25 @@ class ComplexAttention(nn.Module):
         
         # Compute attention scores
         scores = torch.matmul(q, k.transpose(-2, -1)) / math.sqrt(self.head_dim)
+        # >>> saparate real and imaginary parts softmax >>>
+        # # Separate real and imaginary parts and apply softmax separately
+        # real_scores = scores.real
+        # imag_scores = scores.imag
+        
+        # # Apply softmax to real and imaginary parts
+        # real_scores = F.softmax(real_scores, dim=-1)
+        # imag_scores = F.softmax(imag_scores, dim=-1)
+        
+        # # Recombine into complex tensor
+        # normalized_scores = torch.complex(real_scores, imag_scores)
+        # <<< saparate real and imaginary parts softmax <<<
 
-        # Separate real and imaginary parts and apply softmax separately
-        real_scores = scores.real
-        imag_scores = scores.imag
+        # phase preserving softmax
+        probs = F.softmax(torch.abs(scores), dim=-1)
+        scores = probs * scores / torch.abs(scores)
         
-        # Apply softmax to real and imaginary parts
-        real_scores = F.softmax(real_scores, dim=-1)
-        imag_scores = F.softmax(imag_scores, dim=-1)
-        
-        # Recombine into complex tensor
-        normalized_scores = torch.complex(real_scores, imag_scores)
         # Apply attention
-        output = torch.matmul(normalized_scores, v)
+        output = torch.matmul(scores, v)
         output = output.view(batch_size, seq_len, 2 * self.embed_dim) # Updated dimension
         
         # Final projection
@@ -180,14 +186,14 @@ class FNO1d(nn.Module):
         self.conv1 = SpectralConv1d(self.width, self.width, self.modes1)
         self.conv2 = SpectralConv1d(self.width, self.width, self.modes1)
         self.conv3 = SpectralConv1d(self.width, self.width, self.modes1)
-        # self.w0 = nn.Conv1d(self.width, self.width, 1)
-        # self.w1 = nn.Conv1d(self.width, self.width, 1)
-        # self.w2 = nn.Conv1d(self.width, self.width, 1)
-        # self.w3 = nn.Conv1d(self.width, self.width, 1)
-        self.w0 = AttentionConv1d(self.width, self.width, self.modes1)
-        self.w1 = AttentionConv1d(self.width, self.width, self.modes1)
-        self.w2 = AttentionConv1d(self.width, self.width, self.modes1)
-        self.w3 = AttentionConv1d(self.width, self.width, self.modes1)
+        self.w0 = nn.Conv1d(self.width, self.width, 1)
+        self.w1 = nn.Conv1d(self.width, self.width, 1)
+        self.w2 = nn.Conv1d(self.width, self.width, 1)
+        self.w3 = nn.Conv1d(self.width, self.width, 1)
+        self.attn0 = AttentionConv1d(self.width, self.width, self.modes1)
+        self.attn1 = AttentionConv1d(self.width, self.width, self.modes1)
+        self.attn2 = AttentionConv1d(self.width, self.width, self.modes1)
+        self.attn3 = AttentionConv1d(self.width, self.width, self.modes1)
 
         self.fc1 = nn.Linear(self.width, 128)
         self.fc2 = nn.Linear(128, 1)
@@ -201,22 +207,26 @@ class FNO1d(nn.Module):
 
         x1 = self.conv0(x)
         x2 = self.w0(x)
-        x = x1 + x2
+        x3 = self.attn0(x)
+        x = x1 + x2 + x3
         x = F.gelu(x)
 
         x1 = self.conv1(x)
         x2 = self.w1(x)
-        x = x1 + x2
+        x3 = self.attn1(x)
+        x = x1 + x2 + x3
         x = F.gelu(x)
 
         x1 = self.conv2(x)
         x2 = self.w2(x)
-        x = x1 + x2
+        x3 = self.attn2(x)
+        x = x1 + x2 + x3
         x = F.gelu(x)
 
         x1 = self.conv3(x)
         x2 = self.w3(x)
-        x = x1 + x2
+        x3 = self.attn3(x)
+        x = x1 + x2 + x3
 
         # x = x[..., :-self.padding] # pad the domain if input is non-periodic
         x = x.permute(0, 2, 1)

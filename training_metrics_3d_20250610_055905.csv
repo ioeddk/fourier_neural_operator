@@ -1,4 +1,3 @@
-epoch,time,train_mse,train_l2,test_l2,learning_rate
 0,24.72,0.657361,0.424341,0.304044,0.001000
 Best model saved at epoch,0,with test_l2,0.304044
 1,25.05,0.225771,0.263535,0.237124,0.001000

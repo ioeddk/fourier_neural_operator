@@ -25,4 +25,4 @@ conda activate ece228
         #     }
         # },
 
-python fourier_1d_attn.py --train_path data/burgers_data_R10.mat --test_path data/burgers_data_R10.mat --ntrain 1000 --ntest 100 --output_dir output_1d_attn --batch_size 20
+python fourier_1d_attn.py --train_path data/burgers_data_R10.mat --test_path data/burgers_data_R10.mat --ntrain 1000 --ntest 100 --output_dir output_1d_attn_combined --batch_size 20

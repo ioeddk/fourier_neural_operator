@@ -25,4 +25,4 @@ conda activate ece228
         #     }
         # },
 
-python fourier_3d_pro_no_earlystop.py --train_path=/home/ubuntu/ece228/fourier_neural_operator/data/ns_V1e-3_N5000_T50_tiny.mat --test_path=/home/ubuntu/ece228/fourier_neural_operator/data/ns_V1e-3_N5000_T50_tiny.mat --ntrain=500 --ntest=100 --output_dir=output_3d_no_earlystop --batch_size=10
+python fourier_3d_pro_no_earlystop.py --train_path=/home/ubuntu/ece228/fourier_neural_operator/data/ns_V1e-3_N5000_T50_tiny.mat --test_path=/home/ubuntu/ece228/fourier_neural_operator/data/ns_V1e-3_N5000_T50_tiny.mat --ntrain=500 --ntest=100 --output_dir=output_3d_no_earlystop 
