@@ -21,4 +21,8 @@ You need to download the dataset from the [original author's repo](https://githu
 - 3D with Improvements 2: `python fourier_3d_pro_earlystop.py`
 
 The plots are created with `plot.ipynb` and `plot1.ipynb`. 
-Notice, for the command involing the bash script, you need to change the name to your own conda environment in the script first. 
+**Notice, for the command involing the bash script, you need to change the name to your own conda environment in the script first. Also you need to change the train datapath and test datapath argument respectively. **
+
+# Data Re-Sampling in 3D Problem
+Following the steps to sample a subset of the original `ns_V1e-3_N5000_T50.mat`. 
+When using Matlab to open the `.mat` dataset file, you will get the `a, u, t` matrices. You need to resample `a` and `u` matrices. First, sample a list of indices with `indices = randperm(5000, num_samples)`, then you can use `a = a(indices,:,:)` and `u = u(indices,:,:,:)` to get a subset, and then use `save('ns_V1e-3_N5000_T50_tiny', 'a', 't', 'u')` to save as a new dataset. 
