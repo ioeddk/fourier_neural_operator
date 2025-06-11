@@ -2,7 +2,7 @@
 
 This repository contains enhanced implementations of the Fourier Neural Operator with additional improvements for better training stability and performance. 
 
-You need to download the dataset from the [original author's repo](https://github.com/wesley-stone/fourier_neural_operator/tree/master), [here](https://drive.google.com/drive/folders/1UnbQh2WWc6knEHbLn-ZaXrKUZhp7pjt-) specifically, then change the path pointing to those datasets in the corresponding script. And for the following tasks, use the command below to run: 
+You need to download the dataset from the [original author's repo](https://github.com/wesley-stone/fourier_neural_operator/tree/master), [here](https://drive.google.com/drive/folders/1UnbQh2WWc6knEHbLn-ZaXrKUZhp7pjt-) specifically, then change the path pointing to those datasets in the corresponding python script. The dataset used for 2D problems is from [Kaggle](https://www.kaggle.com/datasets/sentinelprimehk/darcy-flow-equation). And for the following tasks, use the command below to run: 
 
 ## 1D
 - 1D Baseline: `python fourier_1d.py`
