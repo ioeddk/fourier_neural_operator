@@ -1,0 +1,12 @@
+Parameter,Value
+ntrain,1000
+ntest,100
+sub,8
+h,1024
+s,1024
+batch_size,20
+learning_rate,0.001
+epochs,500
+modes,16
+width,64
+total_parameters,296129

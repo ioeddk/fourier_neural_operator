@@ -239,7 +239,7 @@ if __name__ == "__main__":
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
     
     # Load data
-    dataloader = MatReader('/home/ubuntu/ece228/fourier_neural_operator/data/burgers_data_R10.mat')
+    dataloader = MatReader('data/burgers_data_R10.mat')
     x_data = dataloader.read_field('a')[:,::sub]
     y_data = dataloader.read_field('u')[:,::sub]
     

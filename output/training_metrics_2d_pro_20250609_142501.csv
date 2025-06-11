@@ -1,0 +1,20 @@
+epoch,time,train_mse,train_l2,test_l2,learning_rate
+0,2.61,0.000007,0.366979,0.174131,0.001000
+Best model saved at epoch,0,with test_l2,0.174131
+1,1.80,0.000001,0.138561,0.121072,0.001000
+Best model saved at epoch,1,with test_l2,0.121072
+2,1.92,0.000001,0.114181,0.109218,0.001000
+Best model saved at epoch,2,with test_l2,0.109218
+3,1.91,0.000001,0.102057,0.101591,0.001000
+Best model saved at epoch,3,with test_l2,0.101591
+4,2.23,0.000000,0.096091,0.096127,0.001000
+Best model saved at epoch,4,with test_l2,0.096127
+5,1.70,0.000000,0.093257,0.092989,0.001000
+Best model saved at epoch,5,with test_l2,0.092989
+6,1.82,0.000000,0.086199,0.086611,0.001000
+Best model saved at epoch,6,with test_l2,0.086611
+7,1.62,0.000000,0.086065,0.087579,0.001000
+8,2.23,0.000000,0.081125,0.077494,0.001000
+Best model saved at epoch,8,with test_l2,0.077494
+9,2.13,0.000000,0.075745,0.075067,0.001000
+Best model saved at epoch,9,with test_l2,0.075067

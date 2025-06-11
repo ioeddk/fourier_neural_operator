@@ -1,0 +1,14 @@
+Parameter,Value
+ntrain,1000
+ntest,100
+r_subsampling,5
+h_resolution,85
+s_size,85
+batch_size,20
+learning_rate,0.001
+epochs,500
+patience,50
+min_delta,1e-06
+modes,12
+width,32
+total_parameters,1188353
