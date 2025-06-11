@@ -7,7 +7,7 @@ You need to download the dataset from the [original author's repo](https://githu
 ## 1D
 - 1D Baseline: `python fourier_1d.py`
 - 1D with Improvements 1: `python fourier_1d_pro.py`
-- 1D with Improvements 2: 
+- 1D with Improvements 2: `python fourier1dpro_no_earlystop.py`
 - 1D with Fourier Attention: `./run_fourier_1d_attn.sh`
 
 ## 2D
